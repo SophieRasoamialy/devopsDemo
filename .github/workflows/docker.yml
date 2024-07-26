@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI de verfication de Docker
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events but only for the "index-html" branch
+  push:
+    branches: [ "index-html" ]
+  ## pull_request:
+    # branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+
+      # Verify Docker installation
+      - name: Verifier Docker installation
+        run: |
+          docker --version
+
+      # Verify Docker Compose installation
+      - name: Verifier Docker Compose installation
+        run: |
+          docker-compose --version
+
+        # Verify Docker Compose installation
+      - name: Verifier kubectl installation
+        run: |
+          kubectl version --client
