@@ -32,4 +32,4 @@ jobs:
         # Verify Docker Compose installation
       - name: Verifier kubectl installation
         run: |
-          kubectl --version
+          kubectl version --client
